@@ -1,30 +1,45 @@
 import "react";
-function Footer(){
-    function Foot_nav(){
-        const Footer_Nav = (
-            <nav className="text-white m-3 p-2 flex justify-start">
-                <ul>
-                    <li className="hover:underline">Home</li>
-                    <li className="hover:underline">About</li>
-                    <li className="hover:underline">Support</li>
-                    <li className="hover:underline">Settings</li>
-                </ul>
-            </nav>
-        );
-        return(Footer_Nav);
-    }
-    function Rights(){
-        const AllRights:string = "All right reserver to Tyler Lafantaisie";
-        const Rights_Concat = (<div className="flex justify-center"><p className="text-white text-lg">{AllRights}</p></div>);
-
-        return(Rights_Concat);
-    }
+export default function Footer(){
     return(
-        <>
-            <footer className="bg-slate-700">
-                <Foot_nav/>
-                <Rights/> 
-            </footer> 
-            </>);
+        <footer className="bg-slate-700 h-fill w-fill">
+            <Navfooter>
+                <Navfooteritem>{navArr[0]}</Navfooteritem>
+                <Navfooteritem>{navArr[1]}</Navfooteritem>
+                <Navfooteritem>{navArr[2]}</Navfooteritem> 
+            </Navfooter>
+            <Trademark>{trademarkText}</Trademark>
+           
+
+        </footer>
+    );
 }
-export default Footer;
+// footer nav
+function Navfooter(props){
+    
+   return(
+        <nav>
+            <ul className="p-4">{props.children}</ul>
+        </nav>
+   ) 
+}
+
+function Navfooteritem(props){
+    
+    return(
+        <li className="text-slate-50 font-Domine">
+            {props.children}
+        </li>
+    )
+}
+const navArr = ["Home", "Socials", "Contact us",]
+// trade mark
+function Trademark(props){
+        
+        return(
+        <p className="text-slate-50 font-Domine flex justify-center relative bottom-4"> 
+            {props.children}
+        </p>
+        )
+   }
+const trademarkText = "All Rights are reserved to Tyler Lafantaisie";
+
